@@ -7,18 +7,24 @@
   </head>
   <body ng-app="logintrest" class="container">
     <h1>Hello Logintrest</h1>
-    <div class="row">
-      <form role="form" class="well col-md-6">
+    <div class="row" ng-controller="FormController as vm">
+      <form role="form" class="well col-md-6" ng-submit="vm.login()">
         <div class="form-group">
           <label for="username">User:</label>
-          <input type="text" class="form-control" id="username">
+          <input ng-model="vm.username" required type="text" class="form-control" id="username">
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="text" class="form-control" id="password">
+          <input ng-model="vm.password" required type="password" class="form-control" id="password">
         </div>
         <button class="btn" type="submit">log in</button>
       </form>
+      <div class="well col-md-6">
+        <ul>
+          <li ng-repeat="login in vm.logins">{{ login.username }}:{{ login.time }}</li>
+        </ul>
+
+      </div>
     </div>
 
   </body>
