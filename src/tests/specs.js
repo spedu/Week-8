@@ -11,6 +11,15 @@ describe('FormController', function(){
     expect(formController.username).toBe('');
     expect(formController.password).toBe('');
   });
-  
+
+  it('should add the username and time to the logins array', function(){
+    formController.username = "something";
+    formController.password = "somethingelse";
+    expect(formController.logins.length).toBe(0);
+    formController.login();
+    expect(formController.logins.length).toBe(1);
+    expect(formController.logins[0].username).toBe("something");
+
+  });
 
 });
