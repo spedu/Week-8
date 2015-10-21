@@ -100,3 +100,16 @@ beforeEach(angular.mock.inject(function($controller){
 *on your own*
 
 1. Figure it out!
+
+## Add a delete button to the list of `logins`
+*on your own*
+
+1. Use `ng-click`
+2. Remember the ng-repeat syntax that lets you get the index?
+  * `ng-repeat="(key, value) in array"`
+
+## Test your delete button
+*on your own*
+
+1. Set up the `logins` array
+2. Test to see if it removed one
