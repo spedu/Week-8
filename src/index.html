@@ -21,7 +21,9 @@
       </form>
       <div class="well col-md-6">
         <ul>
-          <li ng-repeat="login in vm.logins">{{ login.username }}:{{ login.time }}</li>
+          <li ng-repeat="login in vm.logins">
+            {{ login.username }}:{{ login.time }} <button ng-click="vm.delete()" class="btn">delete</button>
+          </li>
         </ul>
 
       </div>
