@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Week 8 Fun!</title>
     <link rel="stylesheet" href="styles.css"/>
     <script src="vendors.js"></script>
     <script src="app.js"></script>
   </head>
-  <body ng-app="logintrest" class="container">
+  <body ng-app="logintrest" ng-cloak class="container">
     <h1>Hello Logintrest</h1>
-    <div class="row">
-      <form name="loginForm" role="form" class="well col-md-6">
+    <div class="row" ng-controller="FormController as formCtrl">
+      <form ng-submit="formCtrl.login()" name="loginForm" role="form" class="well col-md-6" >
         <div class="form-group">
           <label for="username">User:</label>
-          <input name="username" type="text" class="form-control">
+          <input ng-model="formCtrl.username" name="username" type="text" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input name="password" type="password" class="form-control">
+          <input ng-model="formCtrl.password" name="password" type="password" class="form-control" required>
         </div>
         <button class="btn" type="submit">log in</button>
       </form>
-
+      <div class="col-md-6 well">
+        <div>
+          <strong>Username: </strong> {{ formCtrl.username }}
+        </div>
+        <div>
+          <strong>Password: </strong> {{ formCtrl.password }}
+        </div>
+        <div>
+          <h2>Logins</h2>
+          <ul>
+            <li ng-repeat="(index, login) in formCtrl.logins">Username: {{ login.username }}, at {{ login.timestamp }} <button ng-click="formCtrl.removeLoginEntry(index)" class="btn btn-danger">Remove</button></li>
+          </ul>
+        </div>  
+      </div>
     </div>
-
   </body>
 </html>
